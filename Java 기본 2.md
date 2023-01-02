@@ -178,7 +178,7 @@ public class MyClassExam {
 ```
 
 Java는 내가 만든 객체 뿐만 아니라 다른 사람이 만들어 놓은 객체를 사용할 수도 있음.
-
+<br/><br/>
 
 ### String 클래스 메소드
 문자열 다루는 메소드
@@ -197,12 +197,19 @@ str.length();
 
 - `concat` : 문자열과 문자열을 결합
 ```java
-str.concat(" world");  
-str = str.concat(" world");
-
-
+str.concat(" world");  // str은 여전히 "hello" 가리킴
+str = str.concat(" world");  // str이 "hello world"를 가리킴
 ```
-참조하는 것일 
+참조하는 것일 뿐이므로 기존의 값 바뀌지 않음. 값 바꾸려면 새로운 값 참조하도록 해야 함.
+
+- `substring` : 문자열 자르기
+```java
+str.substring(3);  // 3번째 문자열부터
+str.substring(3, 6);  // 3번째부터 6번째까지
+```
+
+
+
 
 
 
