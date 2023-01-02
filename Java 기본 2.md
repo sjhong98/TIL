@@ -60,9 +60,153 @@ String str = new String("hello");  // String 이라는 class와 생성자.
 String str1 = "hello";
 String str2 = "hello";
   // hello가 상수 영역에 저장됨.
-  // str1과 str2는 동일한 영역을 가리킨다.
-String str2 = new String("hello");
-  // heap 영역에 만듦.
+  // str1과 str2는 동일한 곳을 참조한다.
+  
+String str3 = new String("hello");
+String str4 = new String("hello");
+  // heap 영역에 생성.
+  // str3와 str4는 다른 곳을 참조한다.
+```
+
+한 번 생성된 `class`는 변화하지 X
+
+
+## 필드 선언
+클래스의 구성요소, 구조체.
+
+`자동차`라는 클래스는 `이름`과 `번호`라는 속성 가지고 있음. 이러한 속성들을 `필드`라고 함. 
+
+객체마다 속성이 동일함.
+
+```java
+public class Car{
+  String name;  // string 타입의 필드 선언
+  int number;  // int 타입의 필드 선언
+  
+}
+```
+```java
+public static void main(String[] args) {
+  Car c1 = new Car();
+  Car c2 = new Car();
+  
+  c1.name = "소나타";
+  c1.number = 1234;
+  
+  c2.name = "그랜져";
+  c2.number = 5678;
+
+}
+```
+`car`라는 객체가 2개 생성되고, 객체마다 속성을 가지고 있음.
+
+
+## 메소드
+객체지향 언어라는 의미는 하나의 사물을 하나의 클래스로 설명하는 것.<br/>
+
+사물에 대한 것은 `상태`와 `행동`으로 나뉨.
+
+- `필드` : 물체의 상태 (이름 / 번호)
+- `메소드` : 물체의 행동 (전진 / 후진)
+<br/>
+`메소드`란 클래스가 가지고 있는 기능. `함수`와 비슷한 역할.
+
+- `입력값` : 매개변수(Parameter), 인자(Argument)
+- `결과값` : 리턴값
+
+
+### 메소드 선언
+
+클래스 외부에 선언
+
+```java
+public class MyClass {
+  public 리턴타입 메소드명 (매개변수) {
+  
+    필요한 기능들 
+    
+  }
+```
+```java
+public class MyClass {
+
+  // 인자도 없고 리턴값도 없는 메소드
+  public void method1() {
+    System.out.println("Hello World");
+  }
+
+  // 리턴값이 없는 메소드
+  public void method2(int x) {
+    System.out.println(x);
+  }
+
+  // 인자가 없지만 리턴하는 메소드
+  public int method3() {
+    System.out.println("Hello World");
+    return 10;
+  }
+
+  // 인자가 여러 개이고 리턴하지 않는 메소드
+  public void method4(int x, int y) {
+    System.out.println(x + y);
+  }
+
+  // 인자를 받아 리턴하는 메소드
+  public int method4(int y) {
+    System.out.println(y);
+    return y + 1;
+  }
+```
+
+
+### 메소드 사용
+`MyClass`라는 클래스가 가진 메소드를 사용하기 위해서는 반드시 `객체`로 만들어져야 함.
+```java
+public class MyClassExam {
+  public static void main(String[] args) {
+  
+    MyClass myclass = new MyClass();  // myclass라는 객체 생성
+    
+    myclass.method1();
+    myclass.method2(10);
+    int value1 = myclass.method3();
+    myclass.method4(5, 10);
+    int value2 = myclass.method5(10);
+    
+  }
+}
+```
+
+Java는 내가 만든 객체 뿐만 아니라 다른 사람이 만들어 놓은 객체를 사용할 수도 있음.
+
+
+### String 클래스 메소드
+문자열 다루는 메소드
+
+- 문자열 선언
+```java
+String str = new String("hello");
+String str = ("hello");
+```
+
+- `length` : 문자열의 길이 반환
+```java
+str.length();
+
+```
+
+- `concat` : 문자열과 문자열을 결합
+```java
+str.concat(" world");  // 메소드 동작 이후에는 기존 문자열로 되돌아 감.
+
+
+```
+참조하는 것일 뿐이므로, 기존값은 바뀌지 않음. 
+
+
+
+
+
 
 
 
