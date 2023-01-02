@@ -197,11 +197,12 @@ str.length();
 
 - `concat` : 문자열과 문자열을 결합
 ```java
-str.concat(" world");  // 메소드 동작 이후에는 기존 문자열로 되돌아 감.
+str.concat(" world");  
+str = str.concat(" world");
 
 
 ```
-참조하는 것일 뿐이므로, 기존값은 바뀌지 않음. 
+참조하는 것일 
 
 
 
