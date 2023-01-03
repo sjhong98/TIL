@@ -187,9 +187,19 @@ public class CarExam {
 
 - 패키지가 있는 클래스 사용할 때 `import` 사용
 
+> com.eightcruz.javastudy
 
+<br/>
 
+```java
+import com.eightcruz.javastudy.*;  // import
 
+public class HelloExam {
+  public static void main (String[] args) {
+    Hello hello = new Hello();
+  }
+}
+```
     
       
       
