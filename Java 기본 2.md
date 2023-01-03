@@ -209,6 +209,103 @@ str.substring(3, 6);  // 3번째부터 6번째까지
 ```
 
 
+## 변수의 scope와 static
+
+```java
+public class VariableScopeExam {
+  int globalScope = 10;  // 이 class 전체가 사용범위
+  
+  static int staticVal = 7;  // static한 필드 선언
+  
+  public void scopeTest(int value) {
+    int localScope = 20;  // 메소드 내부 블럭만 사용범위
+ 
+  }
+}
+
+public static void main(String[] args) {  // 메인 메소드
+  System.out.println(globalScope);
+  System.out.println(localScope);
+  System.out.println(Value);       // 셋 다 사용 불가.
+  // static한 메소드는 객체생성하지 않아도 사용가능.
+  // static하지 않은 메소드는 사용 불가.
+  
+  System.out.println(staticVal);  // 사용가능
+```
+
+static한 메소드에서 static하지 않은 변수를 사용하는 법 -> 객체 생성 후 사용
+```java
+  VariableScopeExam v1 = new VariableScopeExam();
+  System.out.println(v1.globalScope);
+```
+
+static한 변수는 값을 저장할 수 있는 공간 1개 -> 값을 공유한다.
+```java
+  VariableScopeExam v1 = new VariableScopeExam();
+  System.out.println(v1.staticVal);
+  VariableScopeExam v2 = new VariableScopeExam();
+  System.out.println(v2.staticVal);
+  // v1과 v2는 저장공간을 공유한다. 
+  // 둘 중 하나만 바꿔도 둘 다 바뀐다
+  
+  System.out.println(VariableScopeExam.staticVal);
+  // 클래스 이름 직접 사용하는 것이 바람직.
+
+  // 그러면 static 변수는 클래스 이름 사용하나 안하나 똑같은거 아닌가..?
+
+}
+```
+
+`클래스 변수` : 값을 공유하는 변수 (static)
+
+`인스턴스 변수` : 인스턴스가 생성될 때 생성됨 (global)
+
+
+
+## 열거형
+열거타입으로 변수 선언 가능
+
+변수 값으로 들어올 수 있는 값들을 열거할 수 있음.
+
+```java
+public class EnumExam {
+  public static final String MALE = "MALE";
+  public static fianl String FEMALE = "FEMALE";
+  
+  public static void main(String[] args) {
+    String gender;
+    gender1 = EnumExam.MALE
+    gender1 = EnumExam.FEMALE
+    
+    gender1 = "boy";  // 다른 값이 들어올 수 있음
+    
+  }
+}
+```
+`enum` + `이름` { 값1, 값2 } : 들어갈 수 있는 값 열거
+```java
+public class EnumExam {
+  public static final String MALE = "MALE";
+  public static fianl String FEMALE = "FEMALE";
+  
+  public static void main(String[] args) {
+  
+    Gender gender2;
+    gender2 = Gender.MALE;
+    gender2 = Gender.FEMALE;
+    
+    gender2 = "boy";  // 컴파일 에러
+    
+  }
+}
+
+enum Gender {     // Gender에 들어갈 수 있는 값 열거
+  MALE, FEMALE;
+}
+```
+
+
+  
 
 
 
