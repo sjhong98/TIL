@@ -117,6 +117,49 @@ public class Exam {
 ```
 
 
+## Super와 부모생성자
+내가 태어나기 위해서는 부모가 먼저 태어나야 한다.
+
+자식 객체가 생성될 때에는 부모 객체 생성자가 먼저 호출되어 초기화됨.
+
+`super()` : 부모의 생성자. 컴파일 과정에서 자동으로 생성됨.
+
+`Truck` 객체가 인스턴스화 될 때, 부모인 `Car` 객체도 생성됨.
+
+```java
+public class Car {
+
+  public Car() {
+    System.out.println("Car");
+  }
+  
+  public Car(String name) {
+    System.out.println("name");
+  }  // 기본 생성자가 아닌 경우, 자식 객체에서 super 생성자 명시해야 함.
+  
+}
+```
+```java
+public class Truck extends Car {
+
+  public Truck() {
+    super();  // 부모의 생성자. 컴파일 과정에서 자동으로 실행됨.
+    super("소방차");   // 자동으로 생성되지 않음.
+    System.out.print("Truck");
+  }
+  
+}
+```
+```java
+public class Exam {
+
+  public static void main(String[] args) {
+    Truck t = new Truck();  // 결과 : Car Truck -> 부모 객체가 먼저 인스턴스화
+  }
+  
+}
+```
+
 
 
 
