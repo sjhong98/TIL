@@ -161,9 +161,101 @@ public class Exam {
 ```
 
 
+## 오버라이딩
 
+부모가 가지고 있는 메소드와 동일한 모양의 메소드를 자식이 재정의하는 것.
 
+즉, 메소드의 재정의.
 
+```java
+// 부모 클래스
+public class Car {
+
+  public void run() {
+    System.out.println("car"); // 실행됨
+  }
+  
+}
+```java
+// 자식 클래스
+public class Bus extends Car {
+
+}
+
+```java
+// 일반 클래스
+public class Exam {
+
+  public static void main(String[] args) {
+    Bus bus = new Bus();
+    bus.run();
+    // 결과 : 부모클래스인 car의 run이라는 메소드 실행, "car" 출력
+  }
+}
+```
+오버라이딩 후
+
+```java
+// 부모 클래스
+public class Car {
+
+  public void run() {
+    System.out.println("car");
+  }
+  
+}
+```java
+// 자식 클래스
+public class Bus extends Car {
+  public void run() {
+    System.out.println("bus");  // 오버라이딩, 실행됨
+  }
+
+}
+
+```java
+// 일반 클래스
+public class Exam {
+
+  public static void main(String[] args) {
+    Bus bus = new Bus();
+    bus.run();
+    // 결과 : 자식클래스의 run이라는 메소드 실행, "bus" 출력
+  }
+}
+```
+부모의 메소드가 없어지는 것은 아님. 특정한 부분만 추가할 수 있음.
+
+```java
+// 부모 클래스
+public class Car {
+
+  public void run() {
+    System.out.println("car");
+  }
+  
+}
+```java
+// 자식 클래스
+public class Bus extends Car {
+  public void run() {
+    super.run();  // 부모의 메소드가 함께 실행됨.
+    System.out.println("bus");  // 오버라이딩, 실행됨
+  }
+
+}
+
+```java
+// 일반 클래스
+public class Exam {
+
+  public static void main(String[] args) {
+    Bus bus = new Bus();
+    bus.run();
+    // 결과 : 부모, 자식클래스의 run 메소드가 동시에 실행, "car", "bus" 출력
+  }
+}
+```
 
 
 
