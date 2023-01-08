@@ -258,6 +258,69 @@ public class Exam {
 ```
 
 
+## 클래스 형변환
+
+"버스는 차다" 라고 할 수 있어야 함.
+
+자식 객체를 부모 타입의 변수로 참조할 수 있음. 
+
+-> 부모 클래스가 가진 메소드만 사용가능 (자식이 가진 것은 사용 불가)
+
+```java
+public class Bus extends Car {
+
+  public void sound() {
+    system.out.println("sound");
+  }
+  
+}
+```
+
+```java
+public class Exam {
+
+  public static void main(String[] args) {
+    Car c = new Bus();  // 부모 타입으로 자식 타입을 가리킬 수 있음
+    c.run();  // 부모(Car)의 메소드 사용 가능
+    c.sound();  // 자식(Bus)의 메소드 사용 불가
+  }
+
+}
+```
+
+자식 객체의 메소드를 사용하기 위해서는 `형변환` 거쳐야 함.
+
+
+```java
+public class Exam {
+
+  public static void main(String[] args) {
+  
+    Car c = new Bus();  
+    
+    Bus bus = (Bus)c;  // 부모 > 자식 이므로
+    Bus bus = c;       // 이 코드는 에러
+    
+    c.run();  
+    c.sound();
+  }
+
+}
+```
+
+원래 Car 타입의 변수 c가 참조하는 것을 Bus 타입의 변수 bus가 참조하도록 변환함.
+
+원래 Car가 Bus를 참조하고 있었기 때문에 Bus로 형변환이 가능하다.
+
+
+#### 부모가 자식을 가리킬 수는 있으나, 부모의 메소드까지만 접근이 가능하다. 따라서 형 변환을 해야만 모든 메소드의 사용이 가능하다.
+
+
+
+
+
+
+
 
 
 
