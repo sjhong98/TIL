@@ -97,12 +97,13 @@ TV라는 `인터페이스`는 타입이 될 수 있으나, TV가 가진 기능�
 
 
 
-## 인터페이스 default 메소드
+## 인터페이스 default, static 메소드
 
-Java 8부터 default, static 메소드 구현가능.
+Java 8부터 `default`, `static` 메소드 구현가능.
 
-인터페이스가 default 키워드로 선언되면 메소드 구현 가능, 구현한 클래스에서 오버라이딩 가능
+인터페이스가 `default` 키워드로 선언되면 메소드 구현 가능, 구현한 클래스에서 오버라이딩 가능
 
+`default` 키워드를 사용한 구현
 ```java
 public interface Calculator {
 
@@ -141,8 +142,62 @@ public class Exam {
 }
 ```
 
-인터페이스가 
+인터페이스가 변경될 경우, 인터페이스를 구현하는 모드 클래스들이 해당 메소드를 구현하도록 변경되어야 함. 이러한 문제 방지.<br/><br/>
 
+`static` 키워드를 사용한 구현
+
+```java
+public interface Calculator {
+
+  public static int exec2(int i, int j) {
+    return i * j;
+  }
+  
+}
+```
+
+static 메소드는
+
+> 인터페이스명.메소드형식
+
+으로 호출해야 함
+
+```java
+public class Exam {
+  
+  public static void main(String[] args) {
+    Calculator.exec2(3, 4);  // static 메소드 호출
+  }
+
+}
+```
+
+
+## 내부클래스
+
+클래스 안에 선언된 클래스
+
+- `인스턴스 클래스` : 클래스 안의 인스턴스 변수, 즉 필드 선언하는 위치에 선언되는 경우 
+
+```java
+public calss Inner {
+
+  class Cal {
+    int value = 0;
+    public void plus() {
+      value++;
+    }
+  }
+  
+  public static void main(String[] args) {
+  
+    Inner i = new Inner();  // 인스턴스 클래스는 독자적으로 생성될 수 없음
+    Inner.Cal cal = i.new Cal()   // Cal이라는 객체 생성
+    
+    
+  }
+
+    
 
 
 
