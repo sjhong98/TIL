@@ -45,16 +45,105 @@ public interface TV {
   public void changeChannel(int channel);
 ```
 
-- ledTV라는 클래스 생성하여 TV를 구현.
+#### ledTV라는 클래스 생성하여 TV를 구현.
 
-- TV가 가진 기능을 
+- ledTV는 TV가 가진 기능을 모두 가짐.
+
+- ledTV는 TV에 정의된 모든 기능을 구현해야 함.
 
 
 ```java
 public class ledTV implements TV {
-  // ledTV는 인터페이스인 TV를 구현하겠다는 의미
-  // TV가 가진 기능을 ledTV도 모두 가진다
-  // 
+
+  public void turnOn() {
+    System.out.println("turned on");
+  }
+  
+  public void turnOff() {
+    System.out.println("turned off");
+  }
+  
+  public void changeVolume(int volume) {
+    System.out.println("volume changed");
+  }
+  
+  public void changeChannel(int channel) {
+    System.out.println("channel changed");
+  }
+  
+}
+```
+
+```java
+public class Exam {
+
+  public static void main(String[] args) {
+  
+    TV tv = new ledTV();  // 인터페이스도 타입이 될 수 있다
+    tv.turnOn();
+    tv.changeVolume(8);
+    tv.changeChannel(32);
+    tv.turnOff();
+    
+  }
+```
+`상속`의 개념과 동일.
+
+TV라는 `인터페이스`는 타입이 될 수 있으나, TV가 가진 기능만 사용할 수 있다.
+
+추가 확장해서 사용하려면 `클래스 형변환`을 사용해야 함.
+
+`인터페이스`를 사용하는 이유는 ledTV 뿐만 아니라 다른 TV도 만들 수 있기 때문.
+
+
+
+## 인터페이스 default 메소드
+
+Java 8부터 default, static 메소드 구현가능.
+
+인터페이스가 default 키워드로 선언되면 메소드 구현 가능, 구현한 클래스에서 오버라이딩 가능
+
+```java
+public interface Calculator {
+
+  public int plus(int i, int j);
+  public int muliple(int i, int j);  // 선언만 해놓은 상태
+  
+  default int exec(int i, int j) {
+    return i + j;  // dafautl 키워드로 메소드 구현 가능
+  }
+
+}
+```
+```java
+public class MyCal implements Calculator {
+  
+  public int plus(int i, int j) {
+    return i+j;
+  }
+  
+  public int multiple(int i, int j) {
+    return i * j;
+  }
+  
+}
+```
+```java
+public class Exam {
+
+  public static void main(String[] args) {
+    Calculator cal = new MyCal();
+    cal.plus(3, 4);
+    cal.multiple(3, 4);
+    cal.exec(5, 6);  // 사용가능
+  }
+  
+}
+```
+
+인터페이스가 
+
+
 
 
 
