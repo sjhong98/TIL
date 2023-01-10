@@ -185,7 +185,7 @@ public class BizService {
 }
 ```
 <br/><br/>
-사용하는 
+사용하는 방법
 ```java
 public class Exam {
   
