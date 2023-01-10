@@ -55,7 +55,7 @@ public class Exception {
 }
 ```
 
-
+<br/><br/>
 ## Throws
 연산을 하는 쪽이 아닌, 메소드를 호출한 쪽에서 오류를 처리하도록 넘길 수 있음.
 
@@ -86,7 +86,7 @@ public class Exception {
 }
 ```
 
-
+<br/><br/>
 ## Throw
 
 강제로 오류 발생시키기.
@@ -138,7 +138,7 @@ public class Exception {
   }
 }
 ```
-
+<br/><br/>
 
 ## 사용자 정의 Exception
 
@@ -197,6 +197,7 @@ public class Exam {
 
 }
 ```
+
 
 
 
