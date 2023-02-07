@@ -1,12 +1,5 @@
-## 삼항 연산자
 
-```javascript
-조건 ? true일때 : false일때;
-```
-
----
-
-## Truthy and Falsy
+# Truthy and Falsy
 
 다음과 같은 상황에서 함수의 인자가 `undefined`이거나 `null`일 경우에 대비하여 그에 맞는 조치 필요
 
@@ -37,7 +30,7 @@ const person = null;
 print(person);
 ```
 
-<br/><br/>
+<br/>
 
 ### Falsy한 값들
 
@@ -51,6 +44,7 @@ console.log(!NaN);
 
 
 ---
+
 
 
 
